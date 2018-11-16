@@ -1,7 +1,9 @@
-#include <opencv2/core/core.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/highgui/highgui.hpp>
 #include <iostream>
+#include "opencv2/core/core.hpp"
+#include "opencv2/imgcodecs.hpp"
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+#include "imgproc.h"
 
 using namespace cv;
 using namespace std;
@@ -11,8 +13,11 @@ int main() {
 	inputImage = imread("samples/lena.bmp", IMREAD_GRAYSCALE);
 
 	Mat outputImage;
-	
-	imshow("sample", inputImage);
+	IPCVL::ChangeContrastAndBrightness(inputImage, outputImage, 1, 15);
+
+	imshow("original Image", inputImage);
+	imshow("dst Image", outputImage);
 	waitKey(0);
+
 	return 0;
 }
