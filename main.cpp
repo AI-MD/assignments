@@ -8,7 +8,10 @@ using namespace std;
 
 int main() {
 	Mat inputImage;
-	inputImage = imread("samples/sample.jpg");
+	inputImage = imread("samples/lena.bmp", IMREAD_GRAYSCALE);
+
+	Mat outputImage;
+	
 	imshow("sample", inputImage);
 	waitKey(0);
 	return 0;
