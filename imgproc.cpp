@@ -1,4 +1,4 @@
-#include "imgproc_solution.h"
+#include "imgproc.h"
 
 namespace IPCVL {
 	namespace IMG_PROC {
