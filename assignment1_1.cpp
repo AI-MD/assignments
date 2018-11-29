@@ -12,11 +12,12 @@ int main() {
 	inputImage = cv::imread("samples/lena.bmp", cv::IMREAD_GRAYSCALE);
 
 	double alpha = 1.1;
-	int beta = 50;
+	int beta = 51;
 	IPCVL::EXAMPLE::ChangeContrastAndBrightness(inputImage, outputImage, alpha, beta);
 
 	int inputHistogram[256] = { 0, };
 	int outputHhistogram[256] = { 0, };
+
 
 	// Todo : imageproc.cpp에 있는 calcHist 함수를 작성하세요
 	IPCVL::IMG_PROC::calcHist(inputImage, inputHistogram); 

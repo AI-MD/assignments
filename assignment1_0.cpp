@@ -12,8 +12,9 @@ int main() {
 	inputImage = cv::imread("samples/lena.bmp", cv::IMREAD_GRAYSCALE);
 
 	double alpha = 1.1;
-	int beta = 50;
+	int beta = 51;
 	IPCVL::EXAMPLE::ChangeContrastAndBrightness(inputImage, outputImage, alpha, beta);
+
 
 	// display
 	imshow("inputImage", inputImage);

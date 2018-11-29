@@ -6,7 +6,7 @@
 #include "imgproc.h"
 
 int main() {
-	cv::Mat input = cv::imread("samples/sample1.jpg");
+	cv::Mat input = cv::imread("samples/sample1.png");
 	cv::Mat face = cv::imread("samples/face.png");
 
 	cv::Mat src_hsv, face_hsv;
