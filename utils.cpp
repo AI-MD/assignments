@@ -38,5 +38,20 @@ namespace IPCVL {
 			for (int i = 0; i < 255; i++)
 				cv::line(histImage, cv::Point(bin_w*(i), hist_h), cv::Point(bin_w*(i), hist_h - histogram[i]), cv::Scalar(0, 0, 0), 1, 8, 0);
 		}
+
+		void calcNormedHist(cv::InputArray src, double* histogram) {
+			cv::Mat inputMat = src.getMat();
+
+			for (int y = 0; y < inputMat.rows; y++) {
+				for (int x = 0; x < inputMat.cols; x++) {
+					histogram[(int)inputMat.at<uchar>(y, x)]++;
+				}
+			}
+
+			// normalize the histogram between 0 and histImage.rows
+			for (int i = 0; i < 256; i++) {
+					histogram[i] = (double)histogram[i] / (inputMat.rows * inputMat.cols);
+			}
+		}
 	}  // namespace UTIL
 }

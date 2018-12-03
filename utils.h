@@ -11,5 +11,6 @@ namespace IPCVL {
 		int quantize(int a);
 		double h_r(double model_hist[][64], double input_hist[][64], int j, int i);
 		void GetHistogramImage(int* histogram, cv::OutputArray dst, int hist_w, int hist_h);
+		void calcNormedHist(cv::InputArray src, double* histogram);
 	} // namespace UTIL
 } // namespace IPCVL
