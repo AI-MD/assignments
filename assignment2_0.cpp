@@ -5,7 +5,7 @@
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
-#include "imgproc_solution.h" //-->> It should be Changed 
+#include "imgproc.h" //-->> It should be Changed 
 #include "utils.h"
 #include "examples.h"
 
