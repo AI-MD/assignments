@@ -8,6 +8,11 @@
 
 namespace IPCVL {
 	namespace UTIL {
+		enum CONNECTIVITIES {
+			NAIVE_FOURWAY = 0,
+			NAIVE_EIGHT_WAY,
+			EFFICIENT_FOURWAY
+		};
 		int quantize(int a);
 		double h_r(double model_hist[][64], double input_hist[][64], int j, int i);
 		void GetHistogramImage(int* histogram, cv::OutputArray dst, int hist_w, int hist_h);
