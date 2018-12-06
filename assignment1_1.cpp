@@ -6,8 +6,6 @@
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "imgproc.h"
-#include "utils.h"
-#include "examples.h"
 
 int main() {
 	cv::Mat inputImage, outputImage;
@@ -21,7 +19,7 @@ int main() {
 	int outputHhistogram[256] = { 0, };
 
 	// Todo : imageproc.cpp에 있는 calcHist 함수를 작성하세요
-	IPCVL::IMG_PROC::calcHist(inputImage, inputHistogram); 
+	IPCVL::IMG_PROC::calcHist(inputImage, inputHistogram);
 	IPCVL::IMG_PROC::calcHist(outputImage, outputHhistogram);
 
 	cv::Mat inputHistImage;
