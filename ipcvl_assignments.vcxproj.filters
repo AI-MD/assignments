@@ -13,23 +13,62 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="assignment1">
+      <UniqueIdentifier>{33479747-bb77-42b2-b782-a8ff33a830c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assignment2">
+      <UniqueIdentifier>{c2435977-0d3a-4627-bf90-d01614e29c4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="assignment1_0.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="assignment1_1.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="assignment1_2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+=======
     <ClCompile Include="imgproc.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="examples.cpp">
+>>>>>>> upstream/assignment_2
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="assignment1_0.cpp">
+      <Filter>assignment1</Filter>
+    </ClCompile>
+    <ClCompile Include="assignment1_1.cpp">
+      <Filter>assignment1</Filter>
+    </ClCompile>
+    <ClCompile Include="assignment1_2.cpp">
+      <Filter>assignment1</Filter>
+    </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="imgproc.cpp">
+      <Filter>소스 파일</Filter>
+=======
+    <ClCompile Include="assignment2_0.cpp">
+      <Filter>assignment2</Filter>
+    </ClCompile>
+    <ClCompile Include="assignment2_1.cpp">
+      <Filter>assignment2</Filter>
+    </ClCompile>
+    <ClCompile Include="assignment2_2.cpp">
+      <Filter>assignment2</Filter>
+>>>>>>> upstream/assignment_2
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgproc.h">
+<<<<<<< HEAD
+=======
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="examples.h">
+>>>>>>> upstream/assignment_2
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

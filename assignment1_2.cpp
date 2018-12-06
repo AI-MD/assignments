@@ -4,6 +4,8 @@
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "imgproc.h"
+#include "utils.h"
+#include "examples.h"
 
 int main() {
 	cv::Mat input = cv::imread("samples/sample1.png");

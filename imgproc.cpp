@@ -103,6 +103,7 @@ namespace IPCVL {
 			}
 		}
 	}  // namespace IMG_PROC
+<<<<<<< HEAD
 
 	namespace UTIL {
 		int quantize(int a) {
@@ -157,5 +158,7 @@ namespace IPCVL {
 
 		
 	}  // namespace EXAMPLE
+=======
+>>>>>>> upstream/assignment_2
 }
 
