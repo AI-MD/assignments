@@ -22,8 +22,8 @@ int main() {
 	cv::resizeWindow("small image naive 4-way", 640, 640);
 	cv::resizeWindow("small image naive 8-way", 640, 640);
 
-	IPCVL::IMG_PROC::flood_fill(src_small, result_naive_4, IPCVL::UTIL::CONNECTIVITIES::NAIVE_FOURWAY);
-	IPCVL::IMG_PROC::flood_fill(src_small, result_naive_8, IPCVL::UTIL::CONNECTIVITIES::NAIVE_EIGHT_WAY);
+	//IPCVL::IMG_PROC::flood_fill(src_small, result_naive_4, IPCVL::UTIL::CONNECTIVITIES::NAIVE_FOURWAY);
+	//IPCVL::IMG_PROC::flood_fill(src_small, result_naive_8, IPCVL::UTIL::CONNECTIVITIES::NAIVE_EIGHT_WAY);
 	IPCVL::IMG_PROC::flood_fill(src_big, result_efficient_4, IPCVL::UTIL::CONNECTIVITIES::EFFICIENT_FOURWAY);
 
 	double min, max;
@@ -38,10 +38,10 @@ int main() {
 	result_efficient_4.convertTo(result_efficient_4, CV_32FC1, 1 / max);
 
 	//Show Result
-	cv::imshow("small src Image", src_small);
+	//cv::imshow("small src Image", src_small);
 	cv::imshow("big src Image", src_big);
-	cv::imshow("small image naive 4-way", result_naive_4);
-	cv::imshow("small image naive 8-way", result_naive_8);
+	//cv::imshow("small image naive 4-way", result_naive_4);
+	//cv::imshow("small image naive 8-way", result_naive_8);
 	cv::imshow("big image efficient 4-way", result_efficient_4);
 	cv::waitKey();
 
