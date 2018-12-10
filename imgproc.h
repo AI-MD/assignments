@@ -11,6 +11,9 @@ namespace IPCVL {
 		void calcHist(cv::InputArray src, int* histogram);
 		void calcHist_hs(cv::InputArray src, double histogram[][64]);
 		void backprojectHistogram(cv::InputArray src_hsv, cv::InputArray face_hsv, cv::OutputArray dst);
+		void thresh_binary(cv::InputArray srcMat, cv::OutputArray ourResult, const int THRESHOLD);
+		void thresh_otsu(cv::InputArray src, cv::OutputArray dst);
+
 	} // namespace IMG_PROC
 
 	namespace UTIL {

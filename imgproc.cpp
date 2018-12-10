@@ -2,6 +2,78 @@
 
 namespace IPCVL {
 	namespace IMG_PROC {
+		void thresh_otsu(cv::InputArray src, cv::OutputArray dst) {
+			dst.create(src.size(), CV_8UC1);
+			cv::Mat inputMat = src.getMat();
+			cv::Mat outputMat = dst.getMat();
+			double histogram[256];
+			int i, y, x;
+			double w[256], u0[256], u1[256], prob[256];
+			double vBetween[256], max_sigma,u;
+			int threshold;
+			/*히스토그램 계산  */
+			for (i = 0; i < 256; i++) histogram[i] = 0;
+			for (y = 0; y < inputMat.rows; y++)
+				for (x = 0; x < inputMat.cols; x++) {
+					histogram[(int)inputMat.at<uchar>(y, x)]++;
+				}
+			/*히스토그램 정규화*/
+			for (i = 0; i < 256; i++) {
+				prob[i] = (double)histogram[i] / (inputMat.rows * inputMat.cols);
+			}
+			
+			u = 0.0;
+			/*히스토그램 평활화*/
+			for (int k = 0; k < 256; k++) {
+				u += (k*prob[k]);
+				
+			}
+			/* 오츄알고리즘 분산 최댓값 */
+			
+			u0[0] = 0.0;
+			w[0] = prob[0];
+			threshold = 0;
+			max_sigma = 0.0;
+			for (i = 1; i < 256; i++) {
+				w[i] = w[i - 1] + prob[i];
+				
+				if (w[i] == 0.0 || (1-w[i]) == 0.0)
+					continue;
+
+				u0[i] = (w[i - 1]* u0[i - 1] + i * prob[i])/w[i];
+				u1[i] = (u - w[i] * u0[i]) / (1 - w[i]);
+				vBetween[i] = w[i] * (1 - w[i])* pow(u0[i] - u1[i], 2);
+					
+				
+				if (vBetween[i] > max_sigma) {
+					max_sigma = vBetween[i];
+					threshold = i;
+				}
+			}
+
+
+			thresh_binary(inputMat, outputMat, threshold);
+			
+		}
+
+
+		void thresh_binary(cv::InputArray srcMat, cv::OutputArray ourResult, const int THRESHOLD) {
+			ourResult.create(srcMat.size(), CV_8UC1);
+			cv::Mat inputMat = srcMat.getMat();
+			cv::Mat outputMat = ourResult.getMat();
+
+			for (int y = 0; y < inputMat.rows; y++) {
+				for (int x = 0; x < inputMat.cols; x++) {
+					if (inputMat.at<uchar>(y, x) > THRESHOLD)
+						outputMat.at<uchar>(y, x) = 255;
+					else if (inputMat.at<uchar>(y, x) <THRESHOLD)
+						outputMat.at<uchar>(y, x) = 0;
+				}
+			}
+
+		}
+
+
 
 		void calcHist(cv::InputArray src, int* histogram) {
 			cv::Mat inputMat = src.getMat();
@@ -142,6 +214,10 @@ namespace IPCVL {
 			for (int i = 0; i < 255; i++)
 				cv::line(histImage, cv::Point(bin_w*(i), hist_h), cv::Point(bin_w*(i), hist_h - histogram[i]), cv::Scalar(0, 0, 0), 1, 8, 0);
 		}
+
+		
+
+
 	}  // namespace UTIL
 
 	namespace EXAMPLE {

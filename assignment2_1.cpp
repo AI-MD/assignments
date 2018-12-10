@@ -10,7 +10,7 @@
 #include "examples.h"
 
 int main() {
-	cv::Mat srcMat = cv::imread("./samples/sample2_1.jpg", cv::IMREAD_GRAYSCALE);
+	cv::Mat srcMat = cv::imread("./samples/sample2_1.bmp", cv::IMREAD_GRAYSCALE);
 	cv::Mat opencvResult, ourResult;
 
 	cv::threshold(srcMat, opencvResult, 0, 255, cv::THRESH_OTSU);
