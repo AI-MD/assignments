@@ -15,6 +15,7 @@ int main() {
 	int beta = 51;
 	IPCVL::EXAMPLE::ChangeContrastAndBrightness(inputImage, outputImage, alpha, beta);
 
+
 	// display
 	imshow("inputImage", inputImage);
 	imshow("outputImage", outputImage);

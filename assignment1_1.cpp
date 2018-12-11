@@ -18,6 +18,7 @@ int main() {
 	int inputHistogram[256] = { 0, };
 	int outputHhistogram[256] = { 0, };
 
+
 	// Todo : imageproc.cpp에 있는 calcHist 함수를 작성하세요
 	IPCVL::IMG_PROC::calcHist(inputImage, inputHistogram);
 	IPCVL::IMG_PROC::calcHist(outputImage, outputHhistogram);

@@ -112,24 +112,24 @@ namespace IPCVL {
 			double w[256], u0[256], u1[256], prob[256];
 			double vBetween[256], max_sigma,u;
 			int threshold;
-			/*È÷½ºÅä±×·¥ °è»ê  */
+			/*íˆìŠ¤í† ê·¸ë¨ ê³„ì‚°  */
 			for (i = 0; i < 256; i++) histogram[i] = 0;
 			for (y = 0; y < inputMat.rows; y++)
 				for (x = 0; x < inputMat.cols; x++) {
 					histogram[(int)inputMat.at<uchar>(y, x)]++;
 				}
-			/*È÷½ºÅä±×·¥ Á¤±ÔÈ­*/
+			/*íˆìŠ¤í† ê·¸ë¨ ì •ê·œí™”*/
 			for (i = 0; i < 256; i++) {
 				prob[i] = (double)histogram[i] / (inputMat.rows * inputMat.cols);
 			}
 			
 			u = 0.0;
-			/*È÷½ºÅä±×·¥ ÆòÈ°È­*/
+			/*íˆìŠ¤í† ê·¸ë¨ í‰í™œí™”*/
 			for (int k = 0; k < 256; k++) {
 				u += (k*prob[k]);
 				
 			}
-			/* ¿ÀÃò¾Ë°í¸®Áò ºĞ»ê ÃÖ´ñ°ª */
+			/* ì˜¤ì¸„ì•Œê³ ë¦¬ì¦˜ ë¶„ì‚° ìµœëŒ“ê°’ */
 			
 			u0[0] = 0.0;
 			w[0] = prob[0];
@@ -184,12 +184,12 @@ namespace IPCVL {
 
 					histogram[(int)inputMat.at<uchar>(y, x)] = histogram[(int)inputMat.at<uchar>(y, x)] + 1;
 
-					// Todo : histogramÀ» ½×½À´Ï´Ù. 
+					// Todo : histogramì„ ìŒ“ìŠµë‹ˆë‹¤. 
 
 					/** your code here! **/
 
-					// hint 1 : for loop ¸¦ ÀÌ¿ëÇØ¼­ cv::Mat ¼øÈ¸ ½Ã (1Ã¤³ÎÀÇ °æ¿ì) 
-					// inputMat.at<uchar>(y, x)¿Í °°ÀÌ µ¥ÀÌÅÍ¿¡ Á¢±ÙÇÒ ¼ö ÀÖ½À´Ï´Ù. 
+					// hint 1 : for loop ë¥¼ ì´ìš©í•´ì„œ cv::Mat ìˆœíšŒ ì‹œ (1ì±„ë„ì˜ ê²½ìš°) 
+					// inputMat.at<uchar>(y, x)ì™€ ê°™ì´ ë°ì´í„°ì— ì ‘ê·¼í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤. 
 				}
 			}
 
@@ -211,7 +211,7 @@ namespace IPCVL {
 
 			double model_hist[64][64] = { { 0., } };
 			double input_hist[64][64] = { { 0., } };
-			// Todo : hs 2Â÷¿ø È÷½ºÅä±×·¥À» °è»êÇÏ´Â ÇÔ¼ö¸¦ ÀÛ¼ºÇÕ´Ï´Ù. 
+			// Todo : hs 2ì°¨ì› íˆìŠ¤í† ê·¸ë¨ì„ ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜ë¥¼ ì‘ì„±í•©ë‹ˆë‹¤. 
 			calcHist_hs(srcMat, input_hist);
 			calcHist_hs(faceMat, model_hist);
 
@@ -221,7 +221,7 @@ namespace IPCVL {
 
 			for (int y = 0; y < srcMat.rows; y++) {
 				for (int x = 0; x < srcMat.cols; x++) {
-					// Todo : ¾çÀÚÈ­µÈ h,s °ªÀ» ¾ò°í histogram¿¡ °ªÀ» ´õÇÕ´Ï´Ù. 
+					// Todo : ì–‘ìí™”ëœ h,s ê°’ì„ ì–»ê³  histogramì— ê°’ì„ ë”í•©ë‹ˆë‹¤. 
 
 					/** your code here! **/
 
@@ -235,8 +235,8 @@ namespace IPCVL {
 					if (val < 0)
 						val = 0;
 					outputProb.at<uchar>(y, x) = val;
-					// hint 1 : UTIL::quantize()¸¦ ÀÌ¿ëÇØ¼­ srctMatÀÇ °ªÀ» ¾çÀÚÈ­ÇÕ´Ï´Ù. 
-					// hint 2 : UTIL::h_r() ÇÔ¼ö¸¦ ÀÌ¿ëÇØ¼­ outputProb °ªÀ» °è»êÇÕ´Ï´Ù. 
+					// hint 1 : UTIL::quantize()ë¥¼ ì´ìš©í•´ì„œ srctMatì˜ ê°’ì„ ì–‘ìí™”í•©ë‹ˆë‹¤. 
+					// hint 2 : UTIL::h_r() í•¨ìˆ˜ë¥¼ ì´ìš©í•´ì„œ outputProb ê°’ì„ ê³„ì‚°í•©ë‹ˆë‹¤. 
 
 
 				}
@@ -251,26 +251,26 @@ namespace IPCVL {
 			cv::Mat mat_h = channels[0];
 			cv::Mat mat_s = channels[1];
 
-			// 2Â÷¿ø È÷½ºÅä±×·¥À» ½×½À´Ï´Ù. 
+			// 2ì°¨ì› íˆìŠ¤í† ê·¸ë¨ì„ ìŒ“ìŠµë‹ˆë‹¤. 
 			for (int y = 0; y < hsv.rows; y++) {
 				for (int x = 0; x < hsv.cols; x++) {
 					int qunantH = (int)UTIL::quantize(mat_h.at<uchar>(y, x));
 					int qunantS = (int)UTIL::quantize(mat_s.at<uchar>(y, x));
 					histogram[qunantH][qunantS]++;
-					// Todo : ¾çÀÚÈ­µÈ h,s °ªÀ» ¾ò°í histogram¿¡ °ªÀ» ´õÇÕ´Ï´Ù. 
+					// Todo : ì–‘ìí™”ëœ h,s ê°’ì„ ì–»ê³  histogramì— ê°’ì„ ë”í•©ë‹ˆë‹¤. 
 
 					/** your code here! **/
 
-					// hint 1 : ¾çÀÚÈ­ ½Ã UTIL::quantize() ÇÔ¼ö¸¦ ÀÌ¿ëÇØ¼­ mat_h, mat_sÀÇ °ªÀ» ¾çÀÚÈ­½ÃÅµ´Ï´Ù. 
+					// hint 1 : ì–‘ìí™” ì‹œ UTIL::quantize() í•¨ìˆ˜ë¥¼ ì´ìš©í•´ì„œ mat_h, mat_sì˜ ê°’ì„ ì–‘ìí™”ì‹œí‚µë‹ˆë‹¤. 
 				}
 			}
 
-			// È÷½ºÅä±×·¥À» (hsv.rows * hsv.cols)À¸·Î Á¤±ÔÈ­ÇÕ´Ï´Ù. 
+			// íˆìŠ¤í† ê·¸ë¨ì„ (hsv.rows * hsv.cols)ìœ¼ë¡œ ì •ê·œí™”í•©ë‹ˆë‹¤. 
 			for (int j = 0; j < 64; j++) {
 				for (int i = 0; i < 64; i++) {
 					histogram[j][i] = histogram[j][i] / hsv.rows*hsv.cols;
 
-					// Todo : histogram¿¡ ÀÖ´Â °ªµéÀ» ¼øÈ¸ÇÏ¸ç (hsv.rows * hsv.cols)À¸·Î Á¤±ÔÈ­ÇÕ´Ï´Ù. 
+					// Todo : histogramì— ìˆëŠ” ê°’ë“¤ì„ ìˆœíšŒí•˜ë©° (hsv.rows * hsv.cols)ìœ¼ë¡œ ì •ê·œí™”í•©ë‹ˆë‹¤. 
 					/** your code here! **/
 				}
 			}
